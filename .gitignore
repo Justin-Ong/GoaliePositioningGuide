@@ -1,0 +1,8 @@
+LabelImg/
+runs/
+Test/
+SourceVideos/
+datasets/
+
+sam_b.pt
+yolov8n.pt
