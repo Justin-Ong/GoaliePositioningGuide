@@ -6,7 +6,7 @@ def generate_dataset():
     cap = cv2.VideoCapture("./SourceVideo5.mp4")
     i = 0
     frame_skip = 10
-    frame_count = 9336
+    frame_count = 0
     
     training_data_path = "./datasets/Dataset/TrainingImages"
     validation_data_path = "./datasets/Dataset/ValidationImages"

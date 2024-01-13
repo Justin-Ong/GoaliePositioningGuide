@@ -29,7 +29,7 @@ def find_image_on_screen(conn):
     # Setting output_color='BGR' to record the screenshots as RGB
     # Otherwise, screenshots are in BGR
     # I don't know why it works this way
-    camera = dxcam.create(device_idx=0, output_idx=0, output_color='BGR')
+    camera = dxcam.create(output_idx=0, output_color='BGR')
     camera.start(target_fps=144)
 
     while True:
@@ -62,7 +62,11 @@ def draw_red_line(conn):
     initialised = False
     
     while True:
-        end_point = conn.recv()
+        if conn.poll():
+            end_point = conn.recv()
+        else:
+            continue
+            
         if initialised:
             canvas.coords(line, 215, 540, end_point[0], end_point[1])
         else:
